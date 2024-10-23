@@ -11,9 +11,9 @@ const HeroSection = () => {
                     <h4 className="text-2xl mb-8">Free creative fun or premium possibilities?</h4>
                 </div>
 
-                <div className="flex space-x-6">
+                <div className="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6 w-full px-6">
                     {/* Card 1 */}
-                    <div className="bg-white bg-opacity-20 backdrop-blur-lg rounded-lg shadow-lg p-12 w-1/2">
+                    <div className="bg-white bg-opacity-20 backdrop-blur-lg rounded-lg shadow-lg p-6 md:w-1/2 w-full">
                         <h3 className="text-md font-semibold mb-2">ADOBE EXPRESS</h3>
                         <p className="text-2xl font-semibold mt-2">
                             Looking for a solution that is simple, fun and free?
@@ -29,12 +29,12 @@ const HeroSection = () => {
                         <img 
                             src={img1} 
                             alt="Card Image 1" 
-                            className="w-[600px] rounded-lg mb-4" 
+                            className="w-full rounded-lg mb-4" 
                         />
                     </div>
 
                     {/* Card 2 */}
-                    <div className="bg-white bg-opacity-20 backdrop-blur-lg rounded-lg shadow-lg p-6 w-1/3">
+                    <div className="bg-white bg-opacity-20 backdrop-blur-lg rounded-lg shadow-lg p-6 md:w-1/2 w-full">
                         <h3 className="text-md font-semibold mb-2">ADOBE PHOTOSHOP</h3>
                         <p className="text-2xl font-semibold mt-2">Create at Speed of Imagination</p>
                         <p className="text-md">
