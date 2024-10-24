@@ -5,6 +5,7 @@ import Buttons from "./components/Buttons.jsx"
 import Footer from "./components/Footer.jsx"
 import Cards1 from "./components/Card1.jsx"
 import Cards2 from "./components/Card2.jsx"
+import Card3 from './components/Card3.jsx'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
       <Buttons />
       <Cards1 />
       <Cards2 />
+      <Card3 />
       <Footer />
     </div>
   )
