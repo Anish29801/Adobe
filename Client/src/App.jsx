@@ -4,6 +4,7 @@ import HeroSection from "./components/HeroSection.jsx"
 import Buttons from "./components/Buttons.jsx"
 import Footer from "./components/Footer.jsx"
 import Cards1 from "./components/Card1.jsx"
+import Cards2 from "./components/Card2.jsx"
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
       <HeroSection />
       <Buttons />
       <Cards1 />
+      <Cards2 />
       <Footer />
     </div>
   )
