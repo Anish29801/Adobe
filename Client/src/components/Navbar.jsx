@@ -12,14 +12,22 @@ import ExperienceCloudIcon from '../assets/experience-cloud.webp';
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [isHelpDropdownOpen, setIsHelpDropdownOpen] = useState(false);
 
     const toggleDropdown = () => {
         setIsDropdownOpen(!isDropdownOpen);
     };
 
+    const toggleHelpDropdown = () => {
+        setIsHelpDropdownOpen(!isHelpDropdownOpen);
+    };
+
     const handleClickOutside = (event) => {
         if (!event.target.closest('.dropdown-container') && isDropdownOpen) {
             setIsDropdownOpen(false);
+        }
+        if (!event.target.closest('.help-dropdown') && isHelpDropdownOpen) {
+            setIsHelpDropdownOpen(false);
         }
     };
 
@@ -28,32 +36,47 @@ function Navbar() {
         return () => {
             document.removeEventListener('click', handleClickOutside);
         };
-    }, [isDropdownOpen]);
+    }, [isDropdownOpen, isHelpDropdownOpen]);
 
     return (
         <nav className="bg-white sticky top-0 z-50 shadow-md">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-                <div className="flex justify-between h-16">
-                    <div className="flex">
-                        <div className="flex-shrink-0 flex items-center">
-                            <a href="/" className="flex items-center">
-                                <img src={Adobe} alt="Adobe" className="h-11 w-auto mr-2" />
-                                <h2 className="text-2xl font-bold text-red-600">Adobe</h2>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex justify-between h-16 items-center">
+                    <div className="flex items-center">
+                        <a href="/" className="flex items-center">
+                            <img src={Adobe} alt="Adobe" className="h-11 w-auto mr-2" />
+                            <h2 className="text-2xl font-bold text-red-600">Adobe</h2>
+                        </a>
+                    </div>
+                    <div className="hidden md:flex items-center space-x-4">
+                        {["Creativity & Design", "PDF & E-signatures", "Marketing & Commerce"].map((item) => (
+                            <a
+                                key={item}
+                                href="#"
+                                className="text-gray-700 hover:text-red-600 px-3 py-2 rounded-md text-sm font-medium flex items-center"
+                            >
+                                {item}
+                                <svg className="h-4 w-4 ml-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                                </svg>
                             </a>
-                        </div>
-                        <div className="hidden md:ml-6 md:flex space-x-4">
-                            {["Creativity & Design", "PDF & E-signatures", "Marketing & Commerce", "Help & Support"].map((item) => (
-                                <a
-                                    key={item}
-                                    href="#"
-                                    className="text-gray-700 hover:text-red-600 px-3 py-2 rounded-md text-sm font-medium flex items-center"
-                                >
-                                    {item}
-                                    <svg className="h-4 w-4 ml-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </a>
-                            ))}
+                        ))}
+                        <div className="relative help-dropdown">
+                            <a
+                                href="#"
+                                onClick={toggleHelpDropdown}
+                                className="text-gray-700 hover:text-red-600 px-3 py-2 rounded-md text-sm font-medium flex items-center"
+                            >
+                                Help & Support
+                                <svg className="h-4 w-4 ml-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </a>
+                            {isHelpDropdownOpen && (
+                                <div className="absolute bg-white shadow-lg rounded-lg mt-2 w-64 p-4 z-50">
+                                    {/* Help dropdown content */}
+                                </div>
+                            )}
                         </div>
                     </div>
                     <div className="flex items-center">
@@ -62,7 +85,7 @@ function Navbar() {
                                 onClick={toggleDropdown}
                                 aria-label="Apps Menu"
                                 aria-expanded={isDropdownOpen}
-                                className="focus:outline-none"
+                                className="hidden md:block focus:outline-none"
                             >
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" className="w-5 h-5">
                                     {Array.from({ length: 9 }).map((_, index) => (
@@ -70,40 +93,10 @@ function Navbar() {
                                     ))}
                                 </svg>
                             </button>
+
                             {isDropdownOpen && (
                                 <div className="absolute right-0 mt-2 w-64 bg-white shadow-lg rounded-lg p-4 z-50">
-                                    <h3 className="text-gray-700 font-semibold mb-3">Web Apps</h3>
-                                    <div className="grid grid-cols-3 gap-4">
-                                        {[
-                                            { icon: AdobeExpressIcon, name: 'Adobe Express' },
-                                            { icon: AcrobatIcon, name: 'Acrobat' },
-                                            { icon: PhotoshopIcon, name: 'Photoshop' },
-                                            { icon: LightroomIcon, name: 'Lightroom' },
-                                            { icon: AcrobatSignIcon, name: 'Acrobat Sign' },
-                                            { icon: FontsIcon, name: 'Fonts' },
-                                            { icon: StockIcon, name: 'Stock' },
-                                            { icon: ExperienceCloudIcon, name: 'Experience Cloud' },
-                                        ].map(({ icon, name }) => (
-                                            <div key={name} className="flex flex-col items-center">
-                                                <img src={icon} alt={name} className="h-10 w-10" />
-                                                <span className="text-sm text-gray-700 mt-1">{name}</span>
-                                            </div>
-                                        ))}
-                                    </div>
-                                    <div className="border-t mt-3 pt-3 flex justify-between items-center bg-gray-100">
-                                        <div className="border-t mt-3 pt-3 flex justify-center items-center bg-gray-100">
-                                            <div className="flex justify-center items-center">
-                                                <a href="#" className="text-gray-800 hover:text-red-600 text-sm font-medium transition duration-200">
-                                                    Adobe.com
-                                                </a>
-                                            </div>
-                                            <div className="flex justify-center items-center ml-4">
-                                                <a href="#" className="text-gray-800 hover:text-red-600 text-sm font-medium transition duration-200">
-                                                    All apps
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    {/* Dropdown content */}
                                 </div>
                             )}
                         </div>
@@ -137,7 +130,7 @@ function Navbar() {
                                             strokeLinecap="round"
                                             strokeLinejoin="round"
                                             strokeWidth="2"
-                                            d="M4 6h16M4 12h16m-7 6h7"
+                                            d="M4 6h16M4 12h16M4 18h16"
                                         />
                                     )}
                                 </svg>
@@ -145,22 +138,37 @@ function Navbar() {
                         </div>
                     </div>
                 </div>
-            </div>
-            {isOpen && (
-                <div className="md:hidden">
-                    <div className="px-2 pt-2 pb-3 space-y-1">
-                        {["Creativity & Design", "PDF & E-signatures", "Marketing & Commerce", "Help & Support"].map((item) => (
-                            <a
-                                key={item}
-                                href="#"
-                                className="text-gray-700 hover:text-red-600 block px-3 py-2 rounded-md text-base font-medium"
-                            >
-                                {item}
-                            </a>
-                        ))}
+                {/* Mobile menu */}
+                {isOpen && (
+                    <div className="md:hidden mt-2">
+                        <div className="space-y-2">
+                            {["Creativity & Design", "PDF & E-signatures", "Marketing & Commerce"].map((item) => (
+                                <a
+                                    key={item}
+                                    href="#"
+                                    className="block text-gray-700 hover:text-red-600 px-3 py-2 rounded-md text-sm font-medium"
+                                >
+                                    {item}
+                                </a>
+                            ))}
+                            <div className="mt-2">
+                                <a
+                                    href="#"
+                                    onClick={toggleHelpDropdown}
+                                    className="block text-gray-700 hover:text-red-600 px-3 py-2 rounded-md text-sm font-medium"
+                                >
+                                    Help & Support
+                                </a>
+                                {isHelpDropdownOpen && (
+                                    <div className="bg-white shadow-lg rounded-lg p-4">
+                                        {/* Help dropdown content for mobile */}
+                                    </div>
+                                )}
+                            </div>
+                        </div>
                     </div>
-                </div>
-            )}
+                )}
+            </div>
         </nav>
     );
 }
