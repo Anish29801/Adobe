@@ -74,7 +74,54 @@ function Navbar() {
                             </a>
                             {isHelpDropdownOpen && (
                                 <div className="absolute bg-white shadow-lg rounded-lg mt-2 w-64 p-4 z-50">
-                                    {/* Help dropdown content */}
+                                    <h3 className="text-gray-700 font-semibold">Help and support</h3>
+                                    <ul className="mb-2">
+                                        <li className="mt-2">
+                                            <a href="#" className="text-gray-800 hover:text-red-600 text-sm">Help Centre</a>
+                                        </li>
+                                        <li className="mt-2">
+                                            <a href="#" className="text-gray-800 hover:text-red-600 text-sm">Enterprise Support</a>
+                                        </li>
+                                        <li className="mt-2">
+                                            <a href="#" className="text-gray-800 hover:text-red-600 text-sm">Adobe Support Community</a>
+                                        </li>
+                                        <li className="mt-2">
+                                            <a
+                                                href="#"
+                                                className="text-gray-800 font-semibold border border-black rounded-lg px-3 py-2 hover:text-red-600 hover:border-red-600 transition duration-200 text-sm"
+                                            >
+                                                Download and install
+                                            </a>
+                                        </li>
+                                        <li className="mt-2">
+                                            <div className="mt-3">
+                                                <li>
+                                                    <button
+                                                        className="text-white rounded-lg bg-[#0d66d0] px-3 py-2 hover:bg-[#0a55a5] transition duration-200 text-sm"
+                                                    >
+                                                        Contact us
+                                                    </button>
+                                                </li>
+
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                    <h3 className="text-gray-700 font-semibold">Learning resources</h3>
+                                    <ul>
+                                        <li className="mt-2">
+                                            <a href="#" className="text-gray-800 hover:text-red-600 text-sm">Creative Cloud tutorials</a>
+                                        </li>
+                                        <li className="mt-2">
+                                            <a href="#" className="text-gray-800 hover:text-red-600 text-sm">Adobe Express</a>
+                                        </li>
+                                        <li className="mt-2">
+                                            <a href="#" className="text-gray-800 hover:text-red-600 text-sm">Acrobat tutorials</a>
+                                        </li>
+                                        <li className="mt-2">
+                                            <a href="#" className="text-gray-800 hover:text-red-600 text-sm">Adobe Experience League</a>
+                                        </li>
+                                    </ul>
                                 </div>
                             )}
                         </div>
@@ -96,7 +143,32 @@ function Navbar() {
 
                             {isDropdownOpen && (
                                 <div className="absolute right-0 mt-2 w-64 bg-white shadow-lg rounded-lg p-4 z-50">
-                                    {/* Dropdown content */}
+                                    <h3 className="text-gray-700 font-semibold mb-3">Web Apps</h3>
+                                    <div className="grid grid-cols-3 gap-4">
+                                        {[
+                                            { icon: AdobeExpressIcon, name: 'Adobe Express' },
+                                            { icon: AcrobatIcon, name: 'Acrobat' },
+                                            { icon: PhotoshopIcon, name: 'Photoshop' },
+                                            { icon: LightroomIcon, name: 'Lightroom' },
+                                            { icon: AcrobatSignIcon, name: 'Acrobat Sign' },
+                                            { icon: FontsIcon, name: 'Fonts' },
+                                            { icon: StockIcon, name: 'Stock' },
+                                            { icon: ExperienceCloudIcon, name: 'Experience Cloud' },
+                                        ].map(({ icon, name }) => (
+                                            <div key={name} className="flex flex-col items-center">
+                                                <img src={icon} alt={name} className="h-10 w-10" />
+                                                <span className="text-sm text-gray-700 mt-1">{name}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <div className="border-t mt-3 pt-3 flex justify-center items-center bg-gray-100">
+                                        <a href="#" className="text-gray-800 hover:text-red-600 text-sm font-medium transition duration-200">
+                                            Adobe.com
+                                        </a>
+                                        <a href="#" className="text-gray-800 hover:text-red-600 text-sm font-medium transition duration-200 ml-4">
+                                            All apps
+                                        </a>
+                                    </div>
                                 </div>
                             )}
                         </div>
@@ -161,7 +233,39 @@ function Navbar() {
                                 </a>
                                 {isHelpDropdownOpen && (
                                     <div className="bg-white shadow-lg rounded-lg p-4">
-                                        {/* Help dropdown content for mobile */}
+                                        <h3 className="text-gray-700 font-semibold">Help and support</h3>
+                                        <ul className="mb-2">
+                                            <li className="mt-2">
+                                                <a href="#" className="text-gray-800 hover:text-red-600 text-sm">Help Centre</a>
+                                            </li>
+                                            <li className="mt-2">
+                                                <a href="#" className="text-gray-800 hover:text-red-600 text-sm">Enterprise Support</a>
+                                            </li>
+                                            <li className="mt-2">
+                                                <a href="#" className="text-gray-800 hover:text-red-600 text-sm">Adobe Support Community</a>
+                                            </li>
+                                            <li className="mt-2">
+                                                <a href="#" className="text-gray-800 hover:text-red-600 text-sm">Download and install</a>
+                                            </li>
+                                            <li className="mt-2">
+                                                <a href="#" className="text-gray-800 hover:text-red-600 text-sm">Contact us</a>
+                                            </li>
+                                        </ul>
+                                        <h3 className="text-gray-700 font-semibold">Learning resources</h3>
+                                        <ul>
+                                            <li className="mt-2">
+                                                <a href="#" className="text-gray-800 hover:text-red-600 text-sm">Creative Cloud tutorials</a>
+                                            </li>
+                                            <li className="mt-2">
+                                                <a href="#" className="text-gray-800 hover:text-red-600 text-sm">Adobe Express</a>
+                                            </li>
+                                            <li className="mt-2">
+                                                <a href="#" className="text-gray-800 hover:text-red-600 text-sm">Acrobat tutorials</a>
+                                            </li>
+                                            <li className="mt-2">
+                                                <a href="#" className="text-gray-800 hover:text-red-600 text-sm">Adobe Experience League</a>
+                                            </li>
+                                        </ul>
                                     </div>
                                 )}
                             </div>
