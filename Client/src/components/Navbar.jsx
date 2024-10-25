@@ -91,14 +91,19 @@ function Navbar() {
                                         ))}
                                     </div>
                                     <div className="border-t mt-3 pt-3 flex justify-between items-center bg-gray-100">
-                                        <a href="#" className="text-gray-800 hover:text-red-600 text-sm font-medium transition duration-200">
-                                            Adobe.com
-                                        </a>
-                                        <a href="#" className="text-gray-800 hover:text-red-600 text-sm font-medium transition duration-200">
-                                            All apps
-                                        </a>
+                                        <div className="border-t mt-3 pt-3 flex justify-center items-center bg-gray-100">
+                                            <div className="flex justify-center items-center">
+                                                <a href="#" className="text-gray-800 hover:text-red-600 text-sm font-medium transition duration-200">
+                                                    Adobe.com
+                                                </a>
+                                            </div>
+                                            <div className="flex justify-center items-center ml-4">
+                                                <a href="#" className="text-gray-800 hover:text-red-600 text-sm font-medium transition duration-200">
+                                                    All apps
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
-
                                 </div>
                             )}
                         </div>
