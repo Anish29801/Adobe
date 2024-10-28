@@ -1,7 +1,6 @@
 import React from 'react';
 import main3 from '../img/main3.webp';
 import main4 from '../img/main4.webp';
-import Adobe from '../img/Adobe.svg';
 
 const Card2 = () => {
   return (
