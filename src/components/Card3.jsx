@@ -1,7 +1,7 @@
 import React from 'react';
-import main5 from '../assets/main5.webp';
-import main6 from '../assets/main6.webp';
-import main7 from '../assets/main7.webp';
+import main5 from '../img/main5.webp';
+import main6 from '../img/main6.webp';
+import main7 from '../img/main7.webp';
 
 const Card3 = () => {
   return (

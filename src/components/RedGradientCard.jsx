@@ -1,6 +1,6 @@
 import React from 'react';
-import main1 from '../assets/main1.webp';
-import Adobe from "../assets/Adobe.svg";
+import main1 from '../img/main1.webp';
+import Adobe from "../img/Adobe.svg";
 
 const RedGradientCard = () => (
   <div className="p-6 rounded-lg bg-gradient-to-r from-red-500 to-red-700 text-white shadow-md max-w-2xl mx-auto">

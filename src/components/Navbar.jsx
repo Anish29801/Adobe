@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import Adobe from "../assets/Adobe.svg";
-import AdobeExpressIcon from '../assets/adobe-express.webp';
-import AcrobatIcon from '../assets/acrobat.svg';
-import PhotoshopIcon from '../assets/photoshop.svg';
-import LightroomIcon from '../assets/lightroom.svg';
-import AcrobatSignIcon from '../assets/acrobat-sign.webp';
-import FontsIcon from '../assets/fonts.webp';
-import StockIcon from '../assets/stock.webp';
-import ExperienceCloudIcon from '../assets/experience-cloud.webp';
+import Adobe from "../img/Adobe.svg";
+import AdobeExpressIcon from '../img/adobe-express.webp';
+import AcrobatIcon from '../img/acrobat.svg';
+import PhotoshopIcon from '../img/photoshop.svg';
+import LightroomIcon from '../img/lightroom.svg';
+import AcrobatSignIcon from '../img/acrobat-sign.webp';
+import FontsIcon from '../img/fonts.webp';
+import StockIcon from '../img/stock.webp';
+import ExperienceCloudIcon from '../img/experience-cloud.webp';
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);

@@ -1,6 +1,6 @@
 import React from 'react';
-import main2 from '../assets/main2.jpg';
-import Adobe from "../assets/Adobe.svg";
+import main2 from '../img/main2.jpg';
+import Adobe from "../img/Adobe.svg";
 
 const BlueGradientCard = () => {
   return (
